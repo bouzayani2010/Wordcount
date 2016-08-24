@@ -23,7 +23,7 @@ public class Main {
 		try {
 
 			Scanner sc = new Scanner(file);
-
+			HashMap sum_map_reduced=new HashMap();
 			while (sc.hasNextLine()) {
 				String line = sc.nextLine();
 				System.out.println("**** Mapper ****");
@@ -32,6 +32,9 @@ public class Main {
 				System.out.println("**** Reducer ****");
 				HashMap map_reduced= new Reducer().reduce(map);
 				System.out.println(map_reduced.toString());
+				System.out.println("**** Sum Reducer ****");
+				 sum_map_reduced= new Reducer().sum(map_reduced,sum_map_reduced);
+				System.out.println(sum_map_reduced.toString());
 			}
 			sc.close();
 		} 

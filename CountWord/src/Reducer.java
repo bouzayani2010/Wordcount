@@ -25,4 +25,21 @@ public class Reducer {
 		return map_reduced;
 	}
 
+	public HashMap sum(HashMap map_reduced, HashMap sum_map_reduced) {
+		// TODO Auto-generated method stub
+		   Iterator it = map_reduced.entrySet().iterator();
+		    while (it.hasNext()) {
+		        Map.Entry pair = (Map.Entry)it.next();
+		        if(!sum_map_reduced.containsKey(pair.getKey())){
+		        	sum_map_reduced.put(pair.getKey() ,pair.getValue());
+		        }
+		        else{
+		        	String val1=""+sum_map_reduced.get(pair.getKey());
+		        	String val2=""+pair.getValue();
+		        	sum_map_reduced.put(pair.getKey() ,Integer.parseInt(val2)+Integer.parseInt(val1));
+		        }
+		    }
+		return sum_map_reduced;
+	}
+
 }
