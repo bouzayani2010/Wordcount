@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import org.apache.commons.collections.MultiMap;
@@ -9,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-       read();
+		read();
 	}
 
 	private static void read() {
@@ -19,21 +20,24 @@ public class Main {
 		File file = new File(classLoader.getResource("textfile/text.txt").getFile());
 
 
-	    try {
+		try {
 
-	        Scanner sc = new Scanner(file);
+			Scanner sc = new Scanner(file);
 
-	        while (sc.hasNextLine()) {
-	            String line = sc.nextLine();
-	            System.out.println("**** Mapper ****");
-	            MultiMap map= new Mapper().maper(line);
-	            System.out.println(map.toString());
-	        }
-	        sc.close();
-	    } 
-	    catch (FileNotFoundException e) {
-	        e.printStackTrace();
-	    }
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				System.out.println("**** Mapper ****");
+				MultiMap map= new Mapper().maper(line);
+				System.out.println(map.toString());
+				System.out.println("**** Reducer ****");
+				HashMap map_reduced= new Reducer().reduce(map);
+				System.out.println(map_reduced.toString());
+			}
+			sc.close();
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

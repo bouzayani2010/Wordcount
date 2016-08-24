@@ -8,16 +8,16 @@ public class Mapper {
 	public MultiMap maper(String line) {
 		// TODO Auto-generated method stub
 		MultiMap map = new MultiHashMap();
-		 Scanner sc = new Scanner(line);
+		Scanner sc = new Scanner(line);
 
-	        while (sc.hasNextLine()) {
-	            String word = sc.next();
-	            map.put(word, 1);
-	           // System.out.print(word+"::");
-	        }
-	        sc.close();
+		while (sc.hasNextLine()) {
+			String word = sc.next();
+			map.put(word, 1);
+			// System.out.print(word+"::");
+		}
+		sc.close();
 		return map;
 	}
 
-	
+
 }
